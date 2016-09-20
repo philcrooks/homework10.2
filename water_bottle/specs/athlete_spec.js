@@ -61,7 +61,6 @@ describe ( 'Athlete', function() {
     athlete.drink(bottle);
     assert.equal( 100, athlete.getHydration() );
     assert.equal( 0, bottle.getVolume());
-
   })
 
 })
