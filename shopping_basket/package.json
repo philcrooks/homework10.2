@@ -1,0 +1,14 @@
+{
+  "name": "shopping_basket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "loyaltyCard.js",
+  "scripts": {
+    "test": "mocha specs"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "^3.0.2"
+  }
+}
