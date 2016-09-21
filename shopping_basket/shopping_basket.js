@@ -9,7 +9,7 @@ function ShoppingBasket(discount) {
   function totalize() {
     var total = 0.0;
     for (var item of mLineItems) {
-      total += item.getPrice();
+      total += item.price;
     }
     // Any product-specific discounts are applied within the line-item
     // Apply any shopping basket specific discounts now
@@ -48,8 +48,8 @@ function ShoppingBasket(discount) {
     addItemByIndex: function(itemIndex) {
       mLineItems[itemIndex].addItem();
     },
-    setNumberOfItems: function(itemIndex, numberOfItems) {
-      mLineItems[itemIndex].setNumberOfItems(numberOfItems);  
+    setNumberOfItems: function(itemIndex, noItems) {
+      mLineItems[itemIndex].numberOfItems = noItems;  
     },
     removeItem: function(itemIndex) {
       var li = mLineItems[itemIndex];
@@ -59,7 +59,7 @@ function ShoppingBasket(discount) {
     clearBasket: function() {
       mLineItems.length = 0;
     },
-    getPrice: function() {
+    get price() {
       totalize();
       return Math.round(mTotalPrice * 100) / 100;
     },

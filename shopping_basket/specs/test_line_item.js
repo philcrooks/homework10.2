@@ -28,31 +28,31 @@ describe ( 'Line Item', function() {
 
   it( "test price", function() {
     lineItem = new LineItem(productWithoutOffer);
-    assert.equal( 3.5, lineItem.getPrice() );
+    assert.equal( 3.5, lineItem.price );
   })
 
   it( "test add item", function() {
     lineItem = new LineItem(productWithoutOffer);
     lineItem.addItem();
-    assert.equal( 7.0, lineItem.getPrice() );
+    assert.equal( 7.0, lineItem.price );
   })
 
   it( "test discount - no discount", function() {
     lineItem = new LineItem(productWithoutOffer);
-    lineItem.setNumberOfItems(3);
-    assert.equal( 10.5, lineItem.getPrice() );
+    lineItem.numberOfItems = 3;
+    assert.equal( 10.5, lineItem.price );
   })
 
   it( "test discount - with discount", function() {
     lineItem = new LineItem(productWithOffer);
-    lineItem.setNumberOfItems(3);
-    assert.equal( 10.0, lineItem.getPrice() );
+    lineItem.numberOfItems = 3;
+    assert.equal( 10.0, lineItem.price );
   })
 
   it( "test remove item", function() {
     lineItem = new LineItem(productWithoutOffer);
-    lineItem.setNumberOfItems(3);
+    lineItem.numberOfItems = 3;
     lineItem.removeItem();
-    assert.equal(7.0, lineItem.getPrice());
+    assert.equal( 7.0, lineItem.price );
   })
 })

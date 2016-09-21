@@ -5,7 +5,7 @@ function LineItem(item) {
 
   return {
     contains: function(item) {
-      return (mItem.getId() === item.getId());
+      return (mItem.id === item.id);
     },
     addItem: function() {
       mNumberOf += 1;
@@ -16,11 +16,11 @@ function LineItem(item) {
       if (mNumberOf < 0) mNumberOf = 0;
       mLinePrice = mItem.priceOf(mNumberOf);
     },
-    setNumberOfItems(noItems) {
+    set numberOfItems(noItems) {
       if (noItems >= 0) mNumberOf = noItems;
       mLinePrice = mItem.priceOf(mNumberOf);
     },
-    getPrice: function() {
+    get price() {
       return Math.round(mLinePrice * 100) / 100;
     },
     isEmpty: function() {

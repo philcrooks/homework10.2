@@ -35,20 +35,20 @@ describe ( 'Shopping Basket', function() {
   })
 
   it( "test empty shopping basket", function() {
-    assert.equal(0.0, basket.getPrice());
+    assert.equal( 0.0, basket.price );
   })
 
   it( "add one item to the shopping basket", function() {
     // A customer clicks "buy now" on an item on the website
     basket.addItem(product1);
-    assert.equal( 5.0, basket.getPrice() );
+    assert.equal( 5.0, basket.price );
   })
 
   it( "add two bogof items to the basket", function() {
     // A customer clicks "buy now" twice on an item that has a bogof offer
     basket.addItem(product1);
     basket.addItem(product1);
-    assert.equal( 5.0, basket.getPrice() );
+    assert.equal( 5.0, basket.price );
   })
 
   it( "check basket discount - no discount", function() {
@@ -56,7 +56,7 @@ describe ( 'Shopping Basket', function() {
     // Note that the 10% discount does not come into effect until more than £20 is spent
     basket.addItem(product1);
     basket.addItem(product2);
-    assert.equal( 20.0, basket.getPrice() );
+    assert.equal( 20.0, basket.price );
   })
 
   it( "check bogof with no basket discount", function () {
@@ -65,7 +65,7 @@ describe ( 'Shopping Basket', function() {
     basket.addItem(product1);
     basket.addItem(product1);
     basket.addItem(product2);
-    assert.equal( 20.0, basket.getPrice() );
+    assert.equal( 20.0, basket.price );
   })
 
   it( "check bogof with basket discount", function() {
@@ -75,7 +75,7 @@ describe ( 'Shopping Basket', function() {
     basket.addItem(product1);
     basket.addItem(product1);
     basket.addItem(product2);
-    assert.equal( 22.5, basket.getPrice() );
+    assert.equal( 22.5, basket.price );
   })
 
   it( "check basket discount without bogof", function() {
@@ -83,7 +83,7 @@ describe ( 'Shopping Basket', function() {
     // There is no bogof offer
     basket.addItem(product2);
     basket.addItem(product2);
-    assert.equal( 27.0, basket.getPrice() );
+    assert.equal( 27.0, basket.price );
   })
 
   it( "test basket discount and customer discount", function() {
@@ -93,7 +93,7 @@ describe ( 'Shopping Basket', function() {
     basket.addItem(product2);
     // Adding the customer to the basket after buying the items is the equivalent of logging into the system after shopping has started.
     basket.addCustomer(customer);
-    assert.equal(26.46, basket.getPrice() );
+    assert.equal(26.46, basket.price );
   })
 
   it( "test getIndex()", function() {
@@ -112,7 +112,7 @@ describe ( 'Shopping Basket', function() {
     basket.addItem(product2);
     basket.addItem(product1);
     basket.removeItem(basket.getIndex(product2));
-    assert.equal( 5.0, basket.getPrice() );
+    assert.equal( 5.0, basket.price );
     assert.equal( 1, basket.size() ); // Only one line item left
   })
 
@@ -122,7 +122,7 @@ describe ( 'Shopping Basket', function() {
     basket.addItem(product2);
     basket.addItem(product1);
     basket.addItemByIndex(basket.getIndex(product2));
-    assert.equal(31.5, basket.getPrice() );
+    assert.equal(31.5, basket.price );
     assert.equal(2, basket.size() );
   })
 
@@ -131,7 +131,7 @@ describe ( 'Shopping Basket', function() {
     // (by interacting with the basket rather than clicking on "buy now")
     basket.addItem(product1);
     basket.setNumberOfItems(basket.getIndex(product1), 10);
-    assert.equal( 22.5, basket.getPrice() );
+    assert.equal( 22.5, basket.price );
     assert.equal( 1, basket.size() );
   })
 
@@ -141,7 +141,7 @@ describe ( 'Shopping Basket', function() {
     basket.setNumberOfItems(basket.getIndex(product1), 10);
     basket.clearBasket();
     // No line items and no price
-    assert.equal( 0.0, basket.getPrice() );
+    assert.equal( 0.0, basket.price );
     assert.equal( 0, basket.size() );
   })
 })

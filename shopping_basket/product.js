@@ -8,7 +8,7 @@ function Product(id, name, price) {
     addSpecialOffer: function(offer) {
       mOffer = offer;
     },
-    getId: function() {
+    get id() {
       return mId;
     },
     priceOf: function(noItems) {
