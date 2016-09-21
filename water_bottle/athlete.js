@@ -3,10 +3,10 @@ function Athlete() {
   mDistanceCovered = 0;
 
   return {
-    getHydration: function() {
+    get hydration() {
       return mHydration;
     },
-    getDistanceCovered: function() {
+    get distanceCovered() {
       return mDistanceCovered;
     },
     run: function() {

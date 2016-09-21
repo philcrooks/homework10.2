@@ -2,7 +2,7 @@ function WaterBottle () {
   var mVolume = 0;
 
   return {
-    getVolume: function() {
+    get volume() {
       return mVolume;
     },
     fill: function() {
