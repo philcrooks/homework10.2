@@ -1,19 +1,18 @@
-function Customer(id, name) {
-  var mId = id;
-  var mName = name;
-  var mLoyaltyCard = null;
+Customer.prototype.addCard = function(card) {
+  this._loyaltyCard = card;
+}
 
-  return {
-    addCard: function(card) {
-      mLoyaltyCard = card;
-    },
-    applyDiscount: function (amount) {
-      if (mLoyaltyCard == null)
-        return amount;
-      else
-        return mLoyaltyCard.applyDiscount(amount);
-    }
-  }
+Customer.prototype.applyDiscount =function (amount) {
+  if (this._loyaltyCard === null)
+    return amount;
+  else
+    return this._loyaltyCard.applyDiscount(amount);
+}
+
+function Customer(id, name) {
+  this._id = id;
+  this._name = name;
+  this._loyaltyCard = null;
 }
 
 module.exports = Customer;
