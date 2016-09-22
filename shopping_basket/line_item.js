@@ -18,11 +18,24 @@ LineItem.prototype.isEmpty = function() {
 }
 
 function LineItem(item) {
+
+  // return {
+  //   _item: item,
+  //   _numberOf: 1,
+  //   _linePrice: this._item.priceOf(this._numberOf),
+  //   numberOFItems: set(noItems) {
+  //     if (noItems >= 0) this._numberOf = noItems;
+  //     this._linePrice = this._item.priceOf(this._numberOf);
+  //   },
+  //   price: get() {
+  //     return Math.round(this._linePrice * 100) / 100;
+  //   }
+  // }
   this._item = item;
   this._numberOf = 1;
   this._linePrice = this._item.priceOf(this._numberOf);
   Object.defineProperties(this, {
-    "numberOfParams": { 
+    "numberOfItems": { 
       set: function(noItems) { 
         if (noItems >= 0) this._numberOf = noItems;
         this._linePrice = this._item.priceOf(this._numberOf);
